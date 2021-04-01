@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'mvn release:update-versions'
                 sh 'mvn release:update-versions -DautoVersionSubmodules=true'
+                sh 'mvn --batch-mode release:update-versions -DdevelopmentVersion=1.2.0-SNAPSHOT'
 
                 echo 'Hello World'
                 sh 'java --version'

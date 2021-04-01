@@ -14,6 +14,9 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
+                sh 'mvn release:update-versions'
+                sh 'mvn release:update-versions -DautoVersionSubmodules=true'
+
                 echo 'Hello World'
                 sh 'java --version'
                 sh 'mvn clean compile'

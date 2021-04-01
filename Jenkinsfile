@@ -29,5 +29,18 @@ pipeline {
                 sh 'mvn package'
             }
         }
+
+        stage('Create docker image') {
+            steps {
+                sh 'docker build -t miladnazarii/jenkinsdemo:$POM_VERSION .'
+            }
+        }
+        stage('Push image to docker hub'){
+            steps{
+                withDockerRegistry([credentialsId: "Git", url: ""]){
+                    sh 'docker push miladnazarii/jenkinsdemo:$POM_VERSION'
+                }
+            }
+        }
     }
 }

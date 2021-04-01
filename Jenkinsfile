@@ -29,7 +29,7 @@ pipeline {
 
         stage('Create docker image') {
             steps {
-                sh 'docker build -t miladnazarii/jenkinsdemo:1,0 .'
+                sh 'docker build -t miladnazarii/jenkinsdemo:1.0 .'
             }
         }
         stage('Push image to docker hub'){

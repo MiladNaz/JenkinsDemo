@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Push image to docker hub'){
             steps{
-                withDockerRegistry([credentialsId: "Git", url: ""]){
+                withDockerRegistry([credentialsId: "dockerlogin", url: ""]){
                     sh 'docker push miladnazarii/jenkinsdemo:1.0'
                 }
             }
